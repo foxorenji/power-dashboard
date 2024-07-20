@@ -1,0 +1,18 @@
+<power-toolbar></power-toolbar>
+
+<ng-container *ngIf="(displayedData$ | async) as data; else notFound">
+<div class="configuration-container">
+  <div class="search">
+    <input [formControl]="searchControl" class="search-field" type="search" placeholder="Search...">
+  </div>
+</div>
+
+  <power-grid [data]="data"></power-grid>
+</ng-container>
+
+
+<ng-template #notFound>
+  <div class="not-found">
+    <p>There's no data to display. </p>
+  </div>
+</ng-template>

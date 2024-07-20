@@ -1,0 +1,16 @@
+
+.data-grid {
+  @apply grid grid-cols-10 bg-white p-4 rounded shadow-md;
+
+  div {
+    @apply col-span-1 flex justify-center items-center py-2 truncate;
+  }
+}
+
+.badge{
+  @apply bg-blue-950 text-white p-2 rounded-full m-2;
+}
+
+.paginator{
+  @apply mb-2 shadow-md flex rounded bg-white w-full place-content-between p-2 items-center;
+}

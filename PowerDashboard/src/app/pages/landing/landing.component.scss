@@ -1,0 +1,23 @@
+.landing-container {
+  @apply h-screen w-full flex items-center justify-center;
+}
+
+.header-text {
+  @apply m-auto pt-10 font-semibold text-3xl text-slate-700;
+}
+
+.header-text span {
+  @apply text-blue-400
+}
+
+.subheader-text {
+  @apply pt-2 text-slate-600;
+}
+
+.start-button {
+  @apply mt-8 bg-slate-700 text-white font-semibold py-2 px-4 rounded-full inline-flex items-center;
+}
+
+i {
+  @apply mr-4;
+}

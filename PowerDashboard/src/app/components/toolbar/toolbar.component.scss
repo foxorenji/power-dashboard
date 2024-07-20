@@ -1,0 +1,27 @@
+.toolbar {
+  @apply flex justify-between items-center p-4 bg-blue-950 sticky top-0 z-50 m-1 rounded;
+}
+
+.logo {
+  @apply font-semibold text-gray-100 text-lg;
+}
+
+.logo span {
+  @apply text-blue-400;
+}
+
+.button-icon{
+  @apply text-gray-100 group-hover:text-blue-400 mx-3 text-2xl;
+}
+
+.sliding-label {
+  @apply opacity-0 group-hover:opacity-100 max-w-0 group-hover:max-w-xs transition-all duration-500 ease-linear text-gray-300 group-hover:text-blue-400;
+}
+
+.sliding-button{
+  @apply flex items-center rounded overflow-hidden text-gray-300 h-6 mr-4;
+}
+
+.sliding-button:hover {
+  @apply text-blue-400;
+}

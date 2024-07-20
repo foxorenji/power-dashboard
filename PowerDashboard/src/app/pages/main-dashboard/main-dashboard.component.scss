@@ -1,0 +1,16 @@
+.search{
+  @apply rounded-md shadow-md overflow-hidden min-w-60 w-1/4 text-slate-800 ;
+}
+
+.search-field {
+  @apply p-4 leading-tight focus:outline-none w-full bg-white dark:bg-gray-700 h-full;
+}
+
+.configuration-container{
+  @apply flex container justify-end mt-8 mx-auto;
+}
+
+.not-found{
+  @apply h-screen text-slate-500 w-full animate-fadein flex items-center justify-center;
+}
+

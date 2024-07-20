@@ -1,0 +1,14 @@
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  @apply bg-sky-100	;
+}
+
+p {
+  @apply font-sans;
+}

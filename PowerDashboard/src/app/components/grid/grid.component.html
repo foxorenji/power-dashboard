@@ -1,0 +1,38 @@
+<div class="container mx-auto my-8">
+
+  <div class="paginator" *ngIf="currentPage$ |async as currentPage">
+    <i class="fas fa-arrow-left mx-4 cursor-pointer"
+       [ngClass]="{'opacity-50	pointer-events-none' : currentPage < 2}"
+       (click)="previousPage()"></i>
+    <p class="text-slate-400 w-full text-center">Page {{currentPage}} &mdash; {{data.length}} entries</p>
+    <i class="fas fa-arrow-right mx-4 cursor-pointer" (click)="nextPage()"></i>
+  </div>
+
+  <div class="data-grid">
+    <div class="text-slate-400 mb-2">ID</div>
+    <div class="text-slate-400 mb-2">Symbol</div>
+    <div class="text-slate-400 mb-2">Name</div>
+    <div class="text-slate-400 mb-2">Current Price</div>
+    <div class="text-slate-400 mb-2">Market Cap</div>
+    <div class="text-slate-400 mb-2">Total Volume</div>
+    <div class="text-slate-400 mb-2">High (24h)</div>
+    <div class="text-slate-400 mb-2">Low (24h)</div>
+    <div class="text-slate-400 mb-2">Price Change (24h)</div>
+    <div class="text-slate-400 mb-2">Circulating Supply</div>
+
+<ng-container *ngFor="let coin of data">
+    <ng-container *ngIf="coin">
+      <div>{{ coin.id }}</div>
+      <div class="badge">{{ coin.symbol | uppercase }}</div>
+      <div class="border-r-2">{{ coin.name }}</div>
+      <div>{{ coin.current_price | currency }}</div>
+      <div>{{ coin.market_cap | million }}</div>
+      <div>{{ coin.total_volume | number }}</div>
+      <div class="text-green-900 font-bold">{{ coin.high_24h | currency }}</div>
+      <div class="text-red-800 font-bold">{{ coin.low_24h | currency }}</div>
+      <div>{{ coin.price_change_percentage_24h | percent }}</div>
+      <div>{{ coin.circulating_supply | million }}</div>
+    </ng-container>
+</ng-container>
+  </div>
+</div>
