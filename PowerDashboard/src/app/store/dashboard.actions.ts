@@ -9,6 +9,7 @@ export const DashboardActions = createActionGroup({
     'Load Dashboard Data Success': props<{ data: Coin[] }>(),
     'Load Dashboard Data Failure': props<{ error: HttpErrorResponse }>(),
     'Show Next Page': emptyProps(),
-    'Show Previous Page': emptyProps()
+    'Show Previous Page': emptyProps(),
+    'Reset Page': emptyProps
   },
 });

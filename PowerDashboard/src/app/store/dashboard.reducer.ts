@@ -25,7 +25,6 @@ export const dataReducer = createReducer(
     ...state,
     data,
     loading: false,
-    page: 1
   })),
   on(DashboardActions.loadDashboardDataFailure, (state) => ({
     ...state,
@@ -33,10 +32,16 @@ export const dataReducer = createReducer(
   })),
   on(DashboardActions.showNextPage, (state) => ({
     ...state,
+    loading: true,
     page: state.page + 1
   })),
   on(DashboardActions.showPreviousPage, (state) => ({
     ...state,
+    loading: true,
     page: state.page - 1
+  })),
+  on(DashboardActions.resetPage, (state) => ({
+    ...state,
+    page: 1
   })),
 );

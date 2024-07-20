@@ -16,6 +16,7 @@ import {dataReducer} from "./store/dashboard.reducer";
 import {HttpClientModule} from "@angular/common/http";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import { MillionPipe } from './pipes/million.pipe';
+import {NgxEchartsModule} from "ngx-echarts";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,10 @@ import { MillionPipe } from './pipes/million.pipe';
     EffectsModule.forRoot([DashboardEffects]),
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

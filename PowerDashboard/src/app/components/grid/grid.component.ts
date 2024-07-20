@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {Coin} from "../../store/dashboard.state";
 import {select, Store} from "@ngrx/store";
-import {selectPage} from "../../store/dashboard.selectors";
+import {selectLoading, selectPage} from "../../store/dashboard.selectors";
 import {DashboardActions} from "../../store/dashboard.actions";
 
 @Component({
@@ -14,6 +14,8 @@ export class GridComponent {
   @Input() data: Partial<Coin[]> = [];
 
   public currentPage$ = this.store.pipe(select(selectPage));
+
+  public loading$ = this.store.pipe(select(selectLoading));
 
   constructor(private store: Store){}
 

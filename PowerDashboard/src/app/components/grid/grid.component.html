@@ -1,4 +1,4 @@
-<div class="container mx-auto my-8">
+<div class="container mx-auto my-8" [ngClass]="{'animate-pulse': loading$ | async}">
 
   <div class="paginator" *ngIf="currentPage$ |async as currentPage">
     <i class="fas fa-arrow-left mx-4 cursor-pointer"
@@ -9,29 +9,29 @@
   </div>
 
   <div class="data-grid">
-    <div class="text-slate-400 mb-2">ID</div>
-    <div class="text-slate-400 mb-2">Symbol</div>
-    <div class="text-slate-400 mb-2">Name</div>
-    <div class="text-slate-400 mb-2">Current Price</div>
-    <div class="text-slate-400 mb-2">Market Cap</div>
-    <div class="text-slate-400 mb-2">Total Volume</div>
-    <div class="text-slate-400 mb-2">High (24h)</div>
-    <div class="text-slate-400 mb-2">Low (24h)</div>
-    <div class="text-slate-400 mb-2">Price Change (24h)</div>
-    <div class="text-slate-400 mb-2">Circulating Supply</div>
+    <div class="text-slate-400 mb-2"><span>ID</span></div>
+    <div class="text-slate-400 mb-2"><span>Symbol</span></div>
+    <div class="text-slate-400 mb-2"><span>Name</span></div>
+    <div class="text-slate-400 mb-2"><span>Current Price</span></div>
+    <div class="text-slate-400 mb-2"><span>Market Cap</span></div>
+    <div class="text-slate-400 mb-2"><span>Total Volume</span></div>
+    <div class="text-slate-400 mb-2"><span>High (24h)</span></div>
+    <div class="text-slate-400 mb-2"><span>Low (24h)</span></div>
+    <div class="text-slate-400 mb-2"><span>Price Change (24h)</span></div>
+    <div class="text-slate-400 mb-2"><span>Circulating Supply</span></div>
 
 <ng-container *ngFor="let coin of data">
     <ng-container *ngIf="coin">
-      <div>{{ coin.id }}</div>
+      <div><span>{{ coin.id }}</span></div>
       <div class="badge">{{ coin.symbol | uppercase }}</div>
-      <div class="border-r-2">{{ coin.name }}</div>
-      <div>{{ coin.current_price | currency }}</div>
-      <div>{{ coin.market_cap | million }}</div>
-      <div>{{ coin.total_volume | number }}</div>
-      <div class="text-green-900 font-bold">{{ coin.high_24h | currency }}</div>
-      <div class="text-red-800 font-bold">{{ coin.low_24h | currency }}</div>
-      <div>{{ coin.price_change_percentage_24h | percent }}</div>
-      <div>{{ coin.circulating_supply | million }}</div>
+      <div class="border-r-2"><span>{{ coin.name }}</span></div>
+      <div><span>{{ coin.current_price | currency }}</span></div>
+      <div><span>{{ coin.market_cap | million }}</span></div>
+      <div><span>{{ coin.total_volume | million }}</span></div>
+      <div class="text-green-900 font-bold"><span>{{ coin.high_24h | currency }}</span></div>
+      <div class="text-red-800 font-bold"><span>{{ coin.low_24h | currency }}</span></div>
+      <div><span>{{ coin.price_change_percentage_24h | percent }}</span></div>
+      <div><span>{{ coin.circulating_supply | million }}</span></div>
     </ng-container>
 </ng-container>
   </div>
