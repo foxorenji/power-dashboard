@@ -21,6 +21,12 @@ export const selectPage = createSelector(
   (state: DashboardState) => state.page,
 );
 
+
+export const selectSorting = createSelector(
+  selectFeature,
+  (state: DashboardState) => state.sortBy,
+);
+
 export const selectChartOptions = createSelector(
   selectDashboardData,
   (dashboardData): EChartsOption => {

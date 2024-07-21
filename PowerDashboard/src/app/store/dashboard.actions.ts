@@ -1,6 +1,6 @@
-import { HttpErrorResponse } from '@angular/common/http';
+import {HttpErrorResponse} from '@angular/common/http';
 import {createActionGroup, emptyProps, props} from '@ngrx/store';
-import {Coin, CoinQueryParams} from "./dashboard.state";
+import {Coin} from "./dashboard.state";
 
 export const DashboardActions = createActionGroup({
   source: 'Dashboard',
@@ -12,5 +12,6 @@ export const DashboardActions = createActionGroup({
     'Show Previous Page': emptyProps(),
     'Reset Page': emptyProps(),
     'Search Data': props<{term: string}>(),
+    'Sort Data': props<{field: keyof Coin}>(),
   },
 });

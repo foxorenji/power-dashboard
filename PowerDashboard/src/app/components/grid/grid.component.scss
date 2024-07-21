@@ -18,3 +18,19 @@
 span{
   @apply truncate;
 }
+
+.header-cell {
+  &:hover span {
+    @apply block animate-fadein bg-white;
+  }
+
+  i {
+    @apply hidden transition-all duration-200;
+  }
+
+  &:hover i {
+    @apply block animate-fadein mr-2;
+  }
+
+
+}

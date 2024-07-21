@@ -15,7 +15,7 @@ module.exports = {
         },
       },
       animation: {
-        fadein: 'fadein 1s ease-out',
+        fadein: 'fadein 2s ease-out',
         spin: 'spin 1s linear infinite',
       },
     },

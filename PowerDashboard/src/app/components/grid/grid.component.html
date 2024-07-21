@@ -11,16 +11,17 @@
   </div>
 
   <div class="data-grid">
-    <div class="text-slate-400 mb-2"><span>ID</span></div>
-    <div class="text-slate-400 mb-2"><span>Symbol</span></div>
-    <div class="text-slate-400 mb-2"><span>Name</span></div>
-    <div class="text-slate-400 mb-2"><span>Current Price</span></div>
-    <div class="text-slate-400 mb-2"><span>Market Cap</span></div>
-    <div class="text-slate-400 mb-2"><span>Total Volume</span></div>
-    <div class="text-slate-400 mb-2"><span>High (24h)</span></div>
-    <div class="text-slate-400 mb-2"><span>Low (24h)</span></div>
-    <div class="text-slate-400 mb-2"><span>Price Change (24h)</span></div>
-    <div class="text-slate-400 mb-2"><span>Circulating Supply</span></div>
+    <div *ngFor="let column of columnDefs" class="text-slate-400 mb-2 text-center header-cell">
+      <ng-container *ngIf="sortBy$ | async as sortBy">
+        <i class="fas cursor-pointer text-blue-950" (click)="sort(column.id)" [ngClass]="{
+    'fa-arrow-up-wide-short': sortBy.direction === 'asc' && sortBy.field === column.id,
+    'fa-arrow-down-wide-short': sortBy.direction === 'desc' && sortBy.field === column.id,
+    'fa-minus': sortBy.field !== column.id
+    }"></i>
+        <span
+          [ngClass]="{'text-blue-950 rounded-md p-2 bg-sky-50': sortBy.field === column.id}">{{ column.headerText }}</span>
+      </ng-container>
+    </div>
 
 <ng-container *ngFor="let coin of data">
     <ng-container *ngIf="coin">
