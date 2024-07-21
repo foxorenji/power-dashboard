@@ -19,7 +19,6 @@ export class ToolbarComponent {
 
   fetchData() {
     this.store.dispatch(DashboardActions.resetPage());
-    const params = DEFAULT_COIN_PARAMS;
-    this.store.dispatch(DashboardActions.loadDashboardData({ params }))
+    this.store.dispatch(DashboardActions.loadDashboardData());
   }
 }

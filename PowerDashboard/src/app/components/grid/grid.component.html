@@ -1,11 +1,13 @@
 <div class="container mx-auto my-8" [ngClass]="{'animate-pulse': loading$ | async}">
 
   <div class="paginator" *ngIf="currentPage$ |async as currentPage">
+    <ng-container *ngIf="showPagination; else searchResults">
     <i class="fas fa-arrow-left mx-4 cursor-pointer"
        [ngClass]="{'opacity-50	pointer-events-none' : currentPage < 2}"
        (click)="previousPage()"></i>
     <p class="text-slate-400 w-full text-center">Page {{currentPage}} &mdash; {{data.length}} entries</p>
     <i class="fas fa-arrow-right mx-4 cursor-pointer" (click)="nextPage()"></i>
+    </ng-container>
   </div>
 
   <div class="data-grid">
@@ -36,3 +38,10 @@
 </ng-container>
   </div>
 </div>
+
+<ng-template #searchResults>
+  <div class="flex text-slate-500 items-center justify-center w-full">
+    <i class="fas fa-search mx-4"></i>
+    <p>{{data.length}} results</p>
+  </div>
+</ng-template>

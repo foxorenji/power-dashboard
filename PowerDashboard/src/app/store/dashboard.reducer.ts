@@ -44,4 +44,11 @@ export const dataReducer = createReducer(
     ...state,
     page: 1
   })),
+  on(DashboardActions.searchData, (state, { term }) => ({
+    ...state,
+    data: state.data?.filter(coin => {
+      const searchTerm = term.toLowerCase();
+      return JSON.stringify(Object.values(coin)).toLowerCase().includes(searchTerm);
+    }) ?? [],
+  })),
 );

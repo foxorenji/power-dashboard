@@ -20,8 +20,8 @@ export class DashboardEffects {
   public loadDashboardData$ = createEffect(() =>
     this.actions$.pipe(
       ofType(DashboardActions.loadDashboardData),
-      switchMap(({ params }) =>
-        this.dataService.getAll(params).pipe(
+      switchMap(() =>
+        this.dataService.getAll(DEFAULT_COIN_PARAMS).pipe(
           map((data: Coin[]) =>
             DashboardActions.loadDashboardDataSuccess({ data })
           ),
@@ -49,7 +49,6 @@ export class DashboardEffects {
       ofType(DashboardActions.showNextPage,
              DashboardActions.showPreviousPage),
       withLatestFrom(this.store.pipe(select(selectPage))),
-      tap((r) => console.log(r)),
       switchMap(([_, page]) =>
         this.dataService.getAll({...DEFAULT_COIN_PARAMS, page}).pipe(
           map((data: Coin[]) =>

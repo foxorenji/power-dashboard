@@ -13,6 +13,8 @@ export class GridComponent {
 
   @Input() data: Partial<Coin[]> = [];
 
+  @Input() showPagination = true;
+
   public currentPage$ = this.store.pipe(select(selectPage));
 
   public loading$ = this.store.pipe(select(selectLoading));

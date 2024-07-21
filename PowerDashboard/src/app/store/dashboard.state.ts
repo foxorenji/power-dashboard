@@ -2,7 +2,7 @@
 export const DEFAULT_COIN_PARAMS = {
   vs_currency: 'usd',
   order: 'market_cap_descending',
-  per_page: 50,
+  per_page: 250,
   page: 1,
   sparkline: false
 }

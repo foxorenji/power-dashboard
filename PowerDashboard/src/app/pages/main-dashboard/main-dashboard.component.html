@@ -3,12 +3,13 @@
 <ng-container *ngIf="(displayedData$ | async) as data; else notFound">
 <div class="configuration-container">
   <div class="search">
-    <input [formControl]="searchControl" class="search-field" type="search" placeholder="Search...">
+    <input [formControl]="searchControl" class="search-field" type="search" placeholder="Looking for anything specific? 👀">
   </div>
 </div>
 
-  <power-chart></power-chart>
-  <power-grid [data]="data"></power-grid>
+  <power-chart *ngIf="data.length"></power-chart>
+  <power-grid [data]="data" [showPagination]="!searchControl.value.length"
+              *ngIf="data.length; else notFound"></power-grid>
 </ng-container>
 
 
